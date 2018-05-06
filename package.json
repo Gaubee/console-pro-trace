@@ -1,0 +1,19 @@
+{
+  "name": "console-pro-trace",
+  "version": "1.0.0",
+  "description": "tarce your function. calc the case time.",
+  "types": "dist/src/index.d.ts",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.0.4",
+    "colors": "^1.2.4",
+    "console-pro": "^2.0.2",
+    "minimatch": "^3.0.4"
+  }
+}
