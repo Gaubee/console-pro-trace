@@ -1,6 +1,6 @@
 {
   "name": "console-pro-trace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "tarce your function. calc the case time.",
   "types": "dist/src/index.d.ts",
   "main": "dist/src/index.js",
@@ -10,6 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaubee/console-pro-trace.git"
+  },
   "dependencies": {
     "@types/node": "^10.0.4",
     "colors": "^1.2.4",
