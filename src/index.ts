@@ -12,14 +12,12 @@ export const console = new ConsolePro({
     date_format: "hh:mm:ss",
     silence: !_CONSOLE_PRO_TRACE
 });
+export const IS_IN_TRACE_MODE = !!_CONSOLE_PRO_TRACE;
 
 const AsyncFuncton = (async () => { }).constructor;
 const REGISTERED_DEBUG_SYMBOL = Symbol("Debug registed");
 const process_base_name = require.main ? path.parse(require.main.filename).base : ""
-const process_name = (process['name'] || process.env.name)
-    || cluster.isWorker
-    ? `CLUSTER-${process_base_name}-${process.pid}`
-    : "";
+const process_name = process['name'] || process.env.name || "";
 
 const minmatch_options = { nocase: true };
 

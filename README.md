@@ -8,7 +8,7 @@ when you have cluster process. you can use [mter](https://www.npmjs.com/package/
 
 ```ts
 // test/demo1.ts
-import { console, registerClassDebug } from '../src/';
+import { console, registerClassDebug, IS_IN_TRACE_MODE } from '../src/';
 class A {
     async say(word) {
         console.log(word)
