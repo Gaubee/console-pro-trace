@@ -15,9 +15,11 @@
     "url": "git+https://github.com/Gaubee/console-pro-trace.git"
   },
   "dependencies": {
-    "@types/node": "^10.0.4",
     "colors": "^1.2.4",
     "console-pro": "^2.0.2",
     "minimatch": "^3.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.0.4"
   }
 }

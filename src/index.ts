@@ -12,7 +12,7 @@ export const console = new ConsolePro({
     date_format: "hh:mm:ss",
     silence: !_CONSOLE_PRO_TRACE
 });
-export const IS_IN_TRACE_MODE = !!_CONSOLE_PRO_TRACE;
+export const IS_IN_TRACE_MODE = !!_CONSOLE_PRO_TRACE.trim();
 
 const AsyncFuncton = (async () => { }).constructor;
 const REGISTERED_DEBUG_SYMBOL = Symbol("Debug registed");
