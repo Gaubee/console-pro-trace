@@ -6,8 +6,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "test": "node dist/test/demo1.js",
-    "dev": "tsc -w",
-    "publish": "npm publish"
+    "dev": "tsc -w"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +18,7 @@
   "dependencies": {
     "colors": "^1.2.4",
     "console-pro": "^2.0.3",
-    "mwildcards": "^1.1.0"
+    "mwildcards": "^1.2.1"
   },
   "devDependencies": {
     "@types/node": "^10.0.4"
