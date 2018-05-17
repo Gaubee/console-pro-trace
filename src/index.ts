@@ -1,11 +1,14 @@
 
 import * as colors from "colors";
-import * as minimatch from "minimatch";
+import Mwildcards from "mwildcards";
 import * as cluster from "cluster";
 import * as path from "path";
 import { ConsolePro } from "console-pro";
 
 const _CONSOLE_PRO_TRACE = process.env.CONSOLE_PRO_TRACE || process.env.TRACE || "";
+debugger
+const mw = new Mwildcards(_CONSOLE_PRO_TRACE, { nocase: true });
+
 export const console = new ConsolePro({
     async_log: false,
     auto_reduce_indent: true,
@@ -19,25 +22,14 @@ const REGISTERED_DEBUG_SYMBOL = Symbol("Debug registed");
 const process_base_name = require.main ? path.parse(require.main.filename).base : ""
 const process_name = process['name'] || process.env.name || "";
 
-const minmatch_options = { nocase: true };
-
-export const CONSOLE_PRO_MODES = _CONSOLE_PRO_TRACE.split(",").map(item => item.trim());
-
 // console.flag('CONSOLE_PRO_MODE', CONSOLE_PRO_MODES)
 function matchDebugName(debug_name: string) {
-    if (!_CONSOLE_PRO_TRACE) {
-        return false;
+    debug_name = debug_name;
+    if (process_name) {
+        return mw.isMatch(`${process_name}:${debug_name}`);
+    } else {
+        return mw.isMatch(debug_name);
     }
-    return CONSOLE_PRO_MODES.some(CONSOLE_PRO_MODE => {
-        if (debug_name === CONSOLE_PRO_MODE || minimatch(debug_name, CONSOLE_PRO_MODE, minmatch_options)) {
-            return true;
-        }
-        if (process_name) {
-            return minimatch(process_name + ":" + debug_name, CONSOLE_PRO_MODE, minmatch_options);
-        } else if (cluster.isMaster) {
-            return minimatch("master:" + debug_name, CONSOLE_PRO_MODE, minmatch_options);
-        }
-    });
 }
 
 export function registerClassDebug(Constructor: Function, debug_name: string, _undebug_names?: string[]) {
